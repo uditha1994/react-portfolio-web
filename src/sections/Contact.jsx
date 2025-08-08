@@ -1,3 +1,4 @@
+import BackToHome from '../components/ui/BackToHome'
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import { useForm } from 'react-hook-form'
@@ -49,6 +50,7 @@ export default function Contact() {
             animate={inView ? "visible" : "hidden"}
             variants={containerVariants}
         >
+            <BackToHome />
             <div className="container">
                 <motion.h2 className="section__title" variants={itemVariants}>
                     Get In Touch

@@ -1,3 +1,4 @@
+import BackToHome from '../components/ui/BackToHome'
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import './Work.scss'
@@ -61,6 +62,7 @@ export default function Work() {
             animate={inView ? "visible" : "hidden"}
             variants={containerVariants}
         >
+            <BackToHome />
             <div className="container">
                 <motion.h2 className="section__title" variants={itemVariants}>
                     My Work
