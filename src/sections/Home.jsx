@@ -1,3 +1,4 @@
+import ScrollNav from '../components/ui/ScrollNav'
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import profileImage from '../assets/profile.jpeg'
@@ -59,73 +60,76 @@ export default function Home({ setMenuOpen }) {
     })
 
     return (
-        <motion.section
-            className="home section"
-            id="home"
-            ref={ref}
-            initial="hidden"
-            animate={inView ? "visible" : "hidden"}
-            variants={containerVariants}
-        >
-            <div className="container home__container">
-                <div className="home__content">
-                    <motion.div className="home__text" variants={containerVariants}>
-                        <motion.h1 className="home__title" variants={textVariants}>
-                            Hi, I'm <span className="accent">Uditha Landekumbura</span>
-                        </motion.h1>
+        <>
+            <ScrollNav />
+            <motion.section
+                className="home section"
+                id="home"
+                ref={ref}
+                initial="hidden"
+                animate={inView ? "visible" : "hidden"}
+                variants={containerVariants}
+            >
+                <div className="container home__container">
+                    <div className="home__content">
+                        <motion.div className="home__text" variants={containerVariants}>
+                            <motion.h1 className="home__title" variants={textVariants}>
+                                Hi, I'm <span className="accent">Uditha Landekumbura</span>
+                            </motion.h1>
 
-                        <motion.h2 className="home__subtitle" variants={textVariants}>
-                            <span className="typing-text">Full Stack Developer</span>
-                        </motion.h2>
+                            <motion.h2 className="home__subtitle" variants={textVariants}>
+                                <span className="typing-text">Full Stack Developer</span>
+                            </motion.h2>
 
-                        <motion.p className="home__description" variants={textVariants}>
-                            I build exceptional digital experiences with modern technologies.
-                        </motion.p>
+                            <motion.p className="home__description" variants={textVariants}>
+                                I build exceptional digital experiences with modern technologies.
+                            </motion.p>
 
-                        <motion.div className="home__buttons" variants={textVariants}>
-                            <button className="btn" onClick={() => setMenuOpen(true)}>
-                                Explore My Work
-                            </button>
-                            <a href="#contact" className="btn btn--outline">
-                                Contact Me
-                            </a>
+                            <motion.div className="home__buttons" variants={textVariants}>
+                                <button className="btn" onClick={() => setMenuOpen(true)}>
+                                    Explore My Work
+                                </button>
+                                <a href="#contact" className="btn btn--outline">
+                                    Contact Me
+                                </a>
+                            </motion.div>
                         </motion.div>
-                    </motion.div>
+
+                        <motion.div
+                            className="home__image-wrapper"
+                            variants={imageVariants}
+                            animate="float"
+                        // variants={floatingVariants}
+                        >
+                            <div className="home__image-container">
+                                <img
+                                    src={profileImage}
+                                    alt="Profile"
+                                    className="home__image"
+                                />
+                                <div className="home__image-border"></div>
+                                <div className="home__image-overlay"></div>
+                            </div>
+                        </motion.div>
+                    </div>
 
                     <motion.div
-                        className="home__image-wrapper"
-                        variants={imageVariants}
-                        animate="float"
-                    // variants={floatingVariants}
+                        className="home__scroll-hint"
+                        animate={{
+                            y: [0, 10, 0],
+                            opacity: [0.6, 1, 0.6]
+                        }}
+                        transition={{
+                            duration: 1.5,
+                            repeat: Infinity,
+                            ease: "easeInOut"
+                        }}
                     >
-                        <div className="home__image-container">
-                            <img
-                                src={profileImage}
-                                alt="Profile"
-                                className="home__image"
-                            />
-                            <div className="home__image-border"></div>
-                            <div className="home__image-overlay"></div>
-                        </div>
+                        <span>Scroll Down</span>
+                        <div className="scroll-line"></div>
                     </motion.div>
                 </div>
-
-                <motion.div
-                    className="home__scroll-hint"
-                    animate={{
-                        y: [0, 10, 0],
-                        opacity: [0.6, 1, 0.6]
-                    }}
-                    transition={{
-                        duration: 1.5,
-                        repeat: Infinity,
-                        ease: "easeInOut"
-                    }}
-                >
-                    <span>Scroll Down</span>
-                    <div className="scroll-line"></div>
-                </motion.div>
-            </div>
-        </motion.section>
+            </motion.section>
+        </>
     )
 }
