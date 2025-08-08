@@ -1,0 +1,103 @@
+.contact {
+    &__content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 50px;
+      margin-top: 40px;
+    }
+  
+    &__form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+  
+    .form__group {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+  
+    input, textarea {
+      background: var(--secondary);
+      border: 1px solid rgba(125, 211, 252, 0.1);
+      border-radius: 4px;
+      padding: 12px 15px;
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      transition: all 0.3s ease;
+  
+      &:focus {
+        outline: none;
+        border-color: var(--accent);
+        box-shadow: 0 0 0 2px rgba(125, 211, 252, 0.2);
+      }
+  
+      &.error {
+        border-color: #ff6b6b;
+      }
+    }
+  
+    .error-message {
+      color: #ff6b6b;
+      font-size: 0.8rem;
+    }
+  
+    &__info {
+      background: var(--secondary);
+      padding: 30px;
+      border-radius: 10px;
+      border: 1px solid rgba(125, 211, 252, 0.1);
+    }
+  
+    .info__title {
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+    }
+  
+    .info__text {
+      color: var(--text-secondary);
+      margin-bottom: 30px;
+    }
+  
+    .info__list {
+      list-style: none;
+      margin-bottom: 30px;
+    }
+  
+    .info__item {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 15px;
+    }
+  
+    .info__icon {
+      width: 40px;
+      height: 40px;
+      background: rgba(125, 211, 252, 0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  
+    .social__links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+  
+    .social__link {
+      color: var(--text);
+      padding: 8px 15px;
+      background: rgba(125, 211, 252, 0.1);
+      border-radius: 4px;
+      transition: all 0.3s ease;
+  
+      &:hover {
+        background: var(--accent);
+        color: var(--primary);
+      }
+    }
+  }

@@ -1,0 +1,55 @@
+.about {
+    &__content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 50px;
+      margin-top: 40px;
+    }
+  
+    &__text {
+      p {
+        margin-bottom: 20px;
+        color: var(--text-secondary);
+      }
+    }
+  
+    &__skills {
+      &-title {
+        margin-bottom: 20px;
+        font-size: 1.5rem;
+      }
+    }
+  
+    .skills__list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      list-style: none;
+    }
+  
+    .skill__item {
+      background: var(--secondary);
+      color: var(--accent);
+      padding: 8px 15px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      cursor: default;
+    }
+  }
+  
+  .section__title {
+    font-size: clamp(1.5rem, 5vw, 3rem);
+    margin-bottom: 10px;
+    position: relative;
+    display: inline-block;
+  
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 50px;
+      height: 3px;
+      background: var(--accent);
+    }
+  }
