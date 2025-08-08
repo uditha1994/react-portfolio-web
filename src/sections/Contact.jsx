@@ -110,20 +110,20 @@ export default function Contact() {
                         <ul className="info__list">
                             <li className="info__item">
                                 <span className="info__icon">✉️</span>
-                                <span>hello@example.com</span>
+                                <span>uditha@programmer.net</span>
                             </li>
                             <li className="info__item">
                                 <span className="info__icon">📱</span>
-                                <span>+1 (123) 456-7890</span>
+                                <span>+94 78 660 3236 / +94 71 609 6434</span>
                             </li>
                             <li className="info__item">
                                 <span className="info__icon">📍</span>
-                                <span>San Francisco, CA</span>
+                                <span>Kandy, Sri Lanka</span>
                             </li>
                         </ul>
 
                         <div className="social__links">
-                            {['GitHub', 'LinkedIn', 'Twitter', 'Dribbble'].map((social, index) => (
+                            {['GitHub', 'LinkedIn', 'Twitter'].map((social, index) => (
                                 <a
                                     key={index}
                                     href="#"
