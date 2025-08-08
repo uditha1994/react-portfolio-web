@@ -1,28 +1,33 @@
-import { useState, useEffect } from 'react'
-import { motion } from 'framer-motion'
-import { Link } from 'react-router-dom'
-import { FiHome, FiUser, FiBriefcase, FiMail } from 'react-icons/fi'
-import './ScrollNav.scss'
+import { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
+import { FiHome, FiUser, FiBriefcase, FiMail } from 'react-icons/fi';
+import './ScrollNav.scss';
 
-export default function ScrollNav() {
-    const [isVisible, setIsVisible] = useState(false)
+export default function ScrollNav({ forceShow = false }) {
+    const [isVisible, setIsVisible] = useState(forceShow);
 
     useEffect(() => {
-        const handleScroll = () => {
-            const scrollPosition = window.scrollY || document.documentElement.scrollTop
-            setIsVisible(scrollPosition > 100) // Show after 100px scroll
+        if (forceShow) {
+            setIsVisible(true);
+            return;
         }
 
-        window.addEventListener('scroll', handleScroll)
-        return () => window.removeEventListener('scroll', handleScroll)
-    }, [])
+        const handleScroll = () => {
+            const scrollPosition = window.scrollY || document.documentElement.scrollTop;
+            setIsVisible(scrollPosition > 100);
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, [forceShow]);
 
     const navItems = [
         { path: '/', icon: <FiHome />, label: 'Home' },
         { path: '/about', icon: <FiUser />, label: 'About' },
         { path: '/work', icon: <FiBriefcase />, label: 'Work' },
         { path: '/contact', icon: <FiMail />, label: 'Contact' }
-    ]
+    ];
 
     return (
         <motion.nav
@@ -46,5 +51,5 @@ export default function ScrollNav() {
                 ))}
             </div>
         </motion.nav>
-    )
+    );
 }

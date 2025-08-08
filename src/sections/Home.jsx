@@ -1,5 +1,6 @@
 import ScrollNav from '../components/ui/ScrollNav'
 import { motion } from 'framer-motion'
+import { useState } from 'react'
 import { useInView } from 'react-intersection-observer'
 import profileImage from '../assets/profile.jpeg'
 import './Home.scss'
@@ -57,11 +58,22 @@ export default function Home({ setMenuOpen }) {
     const [ref, inView] = useInView({
         threshold: 0.1,
         triggerOnce: true
-    })
+    });
+
+    const [showNav, setShowNav] = useState(false);
+
+    const handleExploreClick = () => {
+        setShowNav(true);
+        // Scroll down a bit to ensure the nav stays visible
+        window.scrollTo({
+            top: 200,
+            behavior: 'smooth'
+        });
+    };
 
     return (
         <>
-            <ScrollNav />
+            <ScrollNav forceShow={showNav} />
             <motion.section
                 className="home section"
                 id="home"
@@ -86,10 +98,10 @@ export default function Home({ setMenuOpen }) {
                             </motion.p>
 
                             <motion.div className="home__buttons" variants={textVariants}>
-                                <button className="btn" onClick={() => setMenuOpen(true)}>
+                                <button className="btn" onClick={handleExploreClick}>
                                     Explore My Work
                                 </button>
-                                <a href="#contact" className="btn btn--outline">
+                                <a href="/contact" className="btn btn--outline">
                                     Contact Me
                                 </a>
                             </motion.div>
@@ -113,7 +125,7 @@ export default function Home({ setMenuOpen }) {
                         </motion.div>
                     </div>
 
-                    <motion.div
+                    {/* <motion.div
                         className="home__scroll-hint"
                         animate={{
                             y: [0, 10, 0],
@@ -127,7 +139,7 @@ export default function Home({ setMenuOpen }) {
                     >
                         <span>Scroll Down</span>
                         <div className="scroll-line"></div>
-                    </motion.div>
+                    </motion.div> */}
                 </div>
             </motion.section>
         </>
