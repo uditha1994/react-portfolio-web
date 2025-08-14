@@ -1,11 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap');
 
 :root {
-  --primary: #0f172a;
-  --secondary: #1e293b;
-  --accent: #7dd3fc;
-  --text: #f8fafc;
-  --text-secondary: #94a3b8;
+  // --primary: #0f172a;
+  // --secondary: #1e293b;
+  // --accent: #7dd3fc;
+  // --text: #f8fafc;
+  // --text-secondary: #94a3b8;
+  --primary: #0a192f;    // Dark navy blue
+  --secondary: #172a45;   // Slightly lighter navy
+  --accent: #64ffda;     // Teal accent (looks great with ocean)
+  --text: #e6f1ff;       // Light blue text
+  --text-secondary: #8892b0;
 }
 
 * {

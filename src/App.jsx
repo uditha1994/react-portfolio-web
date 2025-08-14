@@ -8,7 +8,8 @@ import About from './sections/About'
 import Work from './sections/Work'
 import Contact from './sections/Contact'
 import Menu from './components/ui/Menu'
-import BackgroundScene from './components/3d/BackgroundScene'
+// import BackgroundScene from './components/3d/BackgroundScene'
+import OceanScene from './components/3d/BackgroundScene'
 import './styles/main.scss'
 
 function AppWrapper() {
@@ -27,7 +28,8 @@ function App() {
     <div className="app">
       <Canvas className="canvas" camera={{ position: [0, 0, 5], fov: 45 }}>
         <ScrollControls pages={4} damping={0.25}>
-          <BackgroundScene />
+          {/* <BackgroundScene /> */}
+          <OceanScene />
         </ScrollControls>
       </Canvas>
 
