@@ -40,6 +40,7 @@
 import { useRef, useMemo } from 'react'
 import { useFrame } from '@react-three/fiber'
 import * as THREE from 'three'
+import { FloatingBoat } from './FloatingObjects'
 
 export default function OceanScene() {
     const oceanRef = useRef()
@@ -108,6 +109,7 @@ export default function OceanScene() {
     return (
         <>
             <ambientLight intensity={0.5} />
+            <FloatingBoat />
             <directionalLight
                 position={[1, 1, 1]}
                 intensity={0.8}
